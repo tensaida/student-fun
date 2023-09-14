@@ -1,3 +1,11 @@
+# Give every student a chance!
+
+This is a random student generator to make your tutorials more engaging and fun! You can get started pretty quickly:
+
+1. Clone the repo
+2. Add a file called `students.txt` with the names of your students to the directory where `server.py` is located.
+3. Create a virtual environment and run `server.py`
+
 # Getting Started with Your Python Virtual Environment
 
 This README.md file will guide you through the process of setting up a Python virtual environment, activating it, and running a Python server.

@@ -14,11 +14,12 @@ student_names = read_student_names(student_names_file)
 @app.route("/random_student", methods=['GET'])
 def random_student():
     selected_student = random.choice(student_names)
-    response = {
+    response = jsonify({
         'message': 'Random student selected',
         'student_name': selected_student
-    }
-    return jsonify(response)
+    })
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 if __name__ == '__main__':
     app.run(debug=True)

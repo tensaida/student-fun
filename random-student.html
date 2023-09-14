@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Student Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('happycat.jpg');
+            background-size: 100px 100px;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+        }
+
+        #studentNameContainer {
+            /* padding: 29px;
+            padding-top: 30px;
+            padding-bottom: 30px; */
+            background-image: url('kawaii.jpg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-size: 24px;
+            background-color: white;
+            display: inline-block;
+            width: 300px;
+            height: 100px;
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div id="studentNameContainer"><p id="studentName"></p></div>
+
+    <script>
+        // Get the name query parameter from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name');
+
+        // Display the student name in the "studentName" div
+        const studentNameElement = document.getElementById('studentName');
+        if (name) {
+            studentNameElement.textContent = name.toLowerCase();
+        } else {
+            studentNameElement.textContent = 'Student name not found.';
+        }
+    </script>
+</body>
+</html>

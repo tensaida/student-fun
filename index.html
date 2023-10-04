@@ -35,42 +35,16 @@
 </head>
 <body>
     <h1 id="welcome"></h1>
-    <a class="start-link">let's go!</a>
+    <a href="button.html">let's go!</a>
 
     <script>
-        // Function to send a POST request when the link is clicked
-        function startNewClass() {
-            // Perform a POST request to http://127.0.0.1:5000/new_class
-            fetch("http://127.0.0.1:5000/new_class", {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({}),
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert("New class started successfully!");
-                    // Redirect to button.html
-                    window.location.href = "button.html";
-                } else {
-                    alert("Error starting a new class.");
-                }
-            })
-            .catch(error => {
-                console.error("Error starting a new class:", error);
-                alert("An error occurred while starting a new class.");
-            });
-        }  
-        // Attach a click event listener to the "Start New Class" link
-        const startNewClassLink = document.getElementsByClassName('start-link');
-        startNewClassLink[0].addEventListener("click", startNewClass);
-
         // Calculate the number of weeks since August 9, 2023 (replace with the current date)
         const currentDate = new Date();
         const startDate = new Date('2023-08-09');
-        const weeksSinceStartDate = Math.floor((currentDate - startDate) / (7 * 24 * 60 * 60 * 1000));
-
+        let weeksSinceStartDate = Math.floor((currentDate - startDate) / (7 * 24 * 60 * 60 * 1000));
+        if (weeksSinceStartDate > 6) {
+            weeksSinceStartDate--;
+        }
         // Display the calculated number of weeks in the page title
         const pageTitle = document.getElementById('welcome');
         pageTitle.textContent = `welcome to CS1010E tutorial week ${weeksSinceStartDate}`;

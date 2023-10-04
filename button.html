@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('cat.jpg');
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .button {
+            background-color: #ffdc7a;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <button class="button" id="randomStudentButton">Pick me! Choose me! Question me!</button>
+
+    <script>
+        document.getElementById("randomStudentButton").addEventListener("click", function () {
+            // Perform a GET request to fetch the random student data
+            fetch("http://127.0.0.1:5000/random_student")
+                .then(response => response.json())
+                .then(data => {
+                    // Redirect to the "random-student" page with the name parameter
+                    const name = data.student_name;
+                    window.location.href = `random-student.html?name=${name}`;
+                })
+                .catch(error => {
+                    console.error("Error fetching random student data:", error);
+                });
+        });
+    </script>
+</body>
+</html>
